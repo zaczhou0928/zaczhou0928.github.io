@@ -3,10 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <meta name="description" content="Personal portfolio website showcasing my work and experience">
+    <title>Qianjin Zhou - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Welcome to My GitHub Page!</h1>
-    <p>This is my personal website hosted on GitHub Pages.</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">Qianjin Zhou</div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm Qianjin Zhou</h1>
+            <p class="tagline">
+                Undergraduate Student | University of California, San Diego<br>
+                <br>
+                Data Science & Business Economics
+            </p>
+            <p class="highlight-text">GPA: 3.97/4.00</p>
+            <div class="social-links-hero">
+                <a href="mailto:q9zhou@ucsd.edu"><i class="fas fa-envelope"></i></a>
+                <a href="tel:858-568-0346"><i class="fas fa-phone"></i></a>
+                <a href="https://linkedin.com/in/qianjinzhou"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/zaczhou0928"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View My Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-left">
+                <div class="about-text">
+                    <p>I am a data science and business economics undergraduate student at the University of California, San Diego. With a strong academic foundation (GPA: 3.97/4.00) and practical experience in data science, machine learning, and financial technology, I am passionate about leveraging data-driven solutions to solve complex business problems.</p>
+                    <p>My coursework in Machine Learning, Data Analytics, Database Systems, Cloud Computing, and Economics has equipped me with a comprehensive skill set that bridges technology and business.</p>
+                </div>
+                <div class="skills">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Programming & Databases</h4>
+                            <ul>
+                                <li>Python</li>
+                                <li>SQL</li>
+                                <li>R</li>
+                                <li>Java</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Frameworks & Libraries</h4>
+                            <ul>
+                                <li>TensorFlow</li>
+                                <li>PyTorch</li>
+                                <li>Transformers</li>
+                                <li>Dask</li>
+                                <li>Apache Spark</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Technologies</h4>
+                            <ul>
+                                <li>AWS</li>
+                                <li>MapReduce</li>
+                                <li>HTML/CSS</li>
+                                <li>Git</li>
+                                <li>Cloud Computing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-image">
+                <img src="images/profile.jpeg" alt="Qianjin Zhou">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Data Scientist Intern</h3>
+                    <p class="company">Yingda Securities Co., Ltd</p>
+                    <p class="duration">Jul. 2024 – Sep. 2024 | Shenzhen, China</p>
+                </div>
+                <ul class="experience-details">
+                    <li>Developed Python-based data pipeline for private fund analysis, reducing processing time by 95%</li>
+                    <li>Analyzed trading strategies of 10 quantitative funds, improving portfolio returns by 2%</li>
+                    <li>Built web-based dashboard for fund report visualization</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Research & Data Analyst Intern</h3>
+                    <p class="company">China Development Institute</p>
+                    <p class="duration">Jul. 2023 – Sep. 2023 | Shenzhen, China</p>
+                </div>
+                <ul class="experience-details">
+                    <li>Implemented ML models for EV market predictions using XGBoost and LSTM</li>
+                    <li>Coordinated international technology summits and improved documentation accuracy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>NLP Financial Credit Score Development</h3>
+                <p class="project-subtitle">Industry-Sponsored by Prism Data</p>
+                <p class="project-duration">Sep. 2024 - Present</p>
+                <div class="project-details">
+                    <p>Advanced credit risk assessment system analyzing 6M customer transactions to enhance traditional credit scoring methods. Achieved 98.7% classification accuracy across 50+ transaction categories.</p>
+                    <ul class="project-achievements">
+                        <li>Implemented state-of-the-art NLP techniques with BERT and Llama models</li>
+                        <li>Engineered 40+ behavioral features achieving ROC-AUC score of 0.87</li>
+                        <li>Optimized model inference latency while maintaining high accuracy</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>BERT</span>
+                        <span>Llama</span>
+                        <span>XGBoost</span>
+                        <span>TF-IDF</span>
+                        <span>Python</span>
+                    </div>
+                    <a href="https://github.com/zaczhou0928/nlp-credit-scoring" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Recommender Systems for Google Local Reviews</h3>
+                <p class="project-subtitle">Recommender System, NLP</p>
+                <p class="project-duration">Oct. 2024 - Dec. 2024</p>
+                <div class="project-details">
+                    <p>Built an intelligent recommendation engine analyzing 2.5M Google reviews and 21K business records to predict and suggest personalized business recommendations.</p>
+                    <ul class="project-achievements">
+                        <li>Developed hybrid recommendation system combining content-based and collaborative filtering</li>
+                        <li>Achieved 64% improvement in prediction accuracy (MSE: 0.374)</li>
+                        <li>Implemented sentiment analysis for nuanced review understanding</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>TF-IDF</span>
+                        <span>Sentiment Analysis</span>
+                        <span>Ridge Regression</span>
+                        <span>Python</span>
+                    </div>
+                    <a href="https://github.com/zaczhou0928/google-local-recommender" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>E-Commerce Rating Prediction with Cloud Computing</h3>
+                <p class="project-subtitle">Dask, Apache Spark, AWS</p>
+                <p class="project-duration">Mar. 2024 - Jun. 2024</p>
+                <div class="project-details">
+                    <p>Developed a scalable cloud-based system for processing and analyzing large-scale e-commerce data (33GB) with optimized computational efficiency.</p>
+                    <ul class="project-achievements">
+                        <li>Achieved 3000% performance boost using parallel processing</li>
+                        <li>Implemented Decision Tree model with 88% prediction accuracy</li>
+                        <li>Reduced AWS operational costs by 40% through optimization</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>Dask</span>
+                        <span>Apache Spark</span>
+                        <span>AWS EC2</span>
+                        <span>Decision Trees</span>
+                        <span>Python</span>
+                    </div>
+                    <a href="https://github.com/zaczhou0928/ecommerce-rating-predictor" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="btn primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Qianjin Zhou. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
