@@ -40,15 +40,11 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Enhanced form submission handling
+// Enhanced form submission handling with Formspree
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const formObject = Object.fromEntries(formData);
         
         // Show loading state
         const submitBtn = this.querySelector('button[type="submit"]');
@@ -56,19 +52,39 @@ if (contactForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
-            // Here you would typically send the form data to a server
-            console.log('Form submitted:', formObject);
-            
-            // Show success message
-            showNotification('Thank you for your message! I will get back to you soon.', 'success');
-            this.reset();
-            
-            // Reset button
+        // Get form data
+        const formData = new FormData(this);
+        
+        // Submit to Formspree
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Success
+                showNotification('Thank you for your message! I will get back to you soon.', 'success');
+                this.reset();
+            } else {
+                // Handle errors
+                response.json().then(data => {
+                    if (Object.hasOwnProperty.call(data, 'errors')) {
+                        showNotification('Oops! There was a problem with your submission: ' + data.errors.map(error => error.message).join(', '), 'error');
+                    } else {
+                        showNotification('Oops! There was a problem submitting your form. Please try again.', 'error');
+                    }
+                });
+            }
+        }).catch(error => {
+            // Network error
+            showNotification('Oops! There was a network error. Please check your connection and try again.', 'error');
+        }).finally(() => {
+            // Reset button state
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 1000);
+        });
     });
 }
 
@@ -77,11 +93,24 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
+    
+    let backgroundColor;
+    switch(type) {
+        case 'success':
+            backgroundColor = '#10b981';
+            break;
+        case 'error':
+            backgroundColor = '#ef4444';
+            break;
+        default:
+            backgroundColor = '#3b82f6';
+    }
+    
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background: ${type === 'success' ? '#10b981' : '#3b82f6'};
+        background: ${backgroundColor};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;
@@ -89,6 +118,8 @@ function showNotification(message, type = 'info') {
         z-index: 10000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
+        max-width: 400px;
+        word-wrap: break-word;
     `;
     
     document.body.appendChild(notification);
@@ -98,13 +129,16 @@ function showNotification(message, type = 'info') {
         notification.style.transform = 'translateX(0)';
     }, 100);
     
-    // Remove after 5 seconds
+    // Remove after longer time for error messages
+    const duration = type === 'error' ? 8000 : 5000;
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
-    }, 5000);
+    }, duration);
 }
 
 // Enhanced animation on scroll
